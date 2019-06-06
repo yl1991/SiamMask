@@ -73,4 +73,4 @@ Solution:
 ```bash
 find ./result/VOT2018/ -type f -exec awk -v x=10 'NR==x{exit 1}' {} \; -exec echo rm -f {} \; | sh
 ```
-and run tune.sh again.
+and run `tune.sh` again.
