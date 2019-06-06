@@ -58,6 +58,7 @@ After tuning:
 THCudaCheck FAIL file=/pytorch/aten/src/THC/THCGeneral.cpp line=663 error=11 : invalid argument
 ```
 Possible reason: Version mismatch between CUDA and PyTorch. I am using RTX2080 seris GPU and my system cuda version is 10.0. However, PyTorch 0.4.1 is compiled with CUDA9 and I installed PyTorch by running `conda install pytorch=0.4.1 cuda92 -c pytorch`.
+
 Solution: 
 * Remove `torch.backends.cudnn.benchmark = True` in the tool scripts.
 * Downgrade system CUDA to 9.2
@@ -72,3 +73,4 @@ Solution:
 ```bash
 find ./result/VOT2018/ -type f -exec awk -v x=10 'NR==x{exit 1}' {} \; -exec echo rm -f {} \; | sh
 ```
+and run tune.sh again.
